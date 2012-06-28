@@ -6,11 +6,15 @@ public class QueryProcessor {
 
     public String process(String query) {
         String[] request = query.split(":");
+        String result;
 
         if (request.length == 1)
-            return processQuery(request[0], request);
+            result = processQuery(request[0], request);
         else
-            return processQuery(request[1], request);
+            result = processQuery(request[1], request);
+
+        System.out.print("Result of request " + request[0] + ": " + result);
+        return result;
     }
 
     private String processQuery(String query, String[] request) {
