@@ -3,7 +3,7 @@ package com.develogical;
 public class Fibs {
 
     public String findFib(String s){
-        String numString = s.split(" ")[4].replace("th", "");
+        String numString = s.split(" ")[3].replace("th", "");
         int num = Integer.valueOf(numString);
         return "" +calcFib(num);
         

@@ -14,6 +14,13 @@ public class QueryProcessorTest {
         assertThat(result, is("86"));
     }
 
+    @Test
+     public void fibs() {
+        String result = new QueryProcessor().process("123123:what is the 4th number in the Fibonacci sequence");
+        assertNotNull(result);
+        assertThat(result, is("3"));
+    }
+
 //    @Test
 //    public void isCubeAndSquare() {
 //        String result = new QueryProcessor().process("123123:which of the following numbers is both a square and a cube : 1,3,348,1024");
