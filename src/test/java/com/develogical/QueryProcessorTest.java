@@ -24,6 +24,13 @@ public class QueryProcessorTest {
         assertNotNull(result);
         assertThat(result, is(""));
     }
+
+    @Test
+    public void returnsPlusResult_13_9_eq_22() {
+        String result = new QueryProcessor().process("what is 13 plus 9");
+        assertNotNull(result);
+        assertThat(result, is("22"));
+    }
 }
 
 
