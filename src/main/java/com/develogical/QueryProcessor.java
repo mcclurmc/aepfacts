@@ -1,5 +1,7 @@
 package com.develogical;
 
+import java.text.DecimalFormat;
+
 import com.develogical.web.SquareCube;
 
 public class QueryProcessor {
@@ -98,8 +100,8 @@ public class QueryProcessor {
             }
             catch (Exception e) {}
         }
-
-        return String.valueOf((int)Math.pow(a, b));
+        DecimalFormat df = new DecimalFormat("#");
+        return df.format(Math.pow(a, b));
     }
 
     private String processPlusQuery(String query) {

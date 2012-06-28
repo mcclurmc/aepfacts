@@ -9,9 +9,9 @@ public class QueryProcessorTest {
 
     @Test
     public void powersTest() {
-        String result = new QueryProcessor().process("123123:what is 2 to the power of 3");
+        String result = new QueryProcessor().process("123123:what is 12 to the power of 13");
         assertNotNull(result);
-        assertThat(result, is("8"));
+        assertThat(result, is("106993205379072"));
     }
 
     @Test
@@ -54,6 +54,13 @@ public class QueryProcessorTest {
         String result = new QueryProcessor().process("what is 13 plus 9");
         assertNotNull(result);
         assertThat(result, is("22"));
+    }
+
+    @Test
+    public void returnsPlusResult_13_9_plus_5_eq_22() {
+        String result = new QueryProcessor().process("what is 13 plus 9 plus 5");
+        assertNotNull(result);
+        assertThat(result, is("27"));
     }
 
     @Test
