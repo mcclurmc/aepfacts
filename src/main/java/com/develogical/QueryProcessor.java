@@ -60,7 +60,7 @@ public class QueryProcessor {
             System.out.println("Square and cube: " + request[2]);
             return new SquareCube().isSquare(request[2]);
         }
-        System.out.println("Request was: " + query);
+        System.out.println("*** Unknown request was: " + query + " ***");
         return "";
     }
 
