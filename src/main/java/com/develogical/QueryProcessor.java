@@ -42,6 +42,7 @@ public class QueryProcessor {
             return processMultQuery(query);
         }
         if (query.contains("which of the following numbers is both a square and a cube")) {
+            System.out.println("Square and cube: " + request[2]);
             return "";
         }
         System.out.println("Request was: " + query);
