@@ -27,6 +27,13 @@ public class QueryProcessorTest {
         assertNotNull(result);
         assertThat(result, is("22"));
     }
+
+    @Test
+    public void returnsMultResult_4_times_3() {
+        String result = new QueryProcessor().process("what is 4 multiplied by 3");
+        assertNotNull(result);
+        assertThat(result, is("12"));
+    }
 }
 
 
