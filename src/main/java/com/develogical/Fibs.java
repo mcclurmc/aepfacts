@@ -4,7 +4,13 @@ public class Fibs {
 
     public String findFib(String s){
         String numString = s.split(" ")[4].replace("th", "");
-        int num = Integer.valueOf(numString);
+        int num = 0;
+        try {
+            num = Integer.valueOf(numString);
+        }
+        catch (Exception e) {
+            System.out.println("Fibs got exception with this input: " + s);
+        }
         return "" +calcFib(num);
         
     }
