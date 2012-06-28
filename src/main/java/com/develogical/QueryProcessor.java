@@ -53,7 +53,13 @@ public class QueryProcessor {
             return "Uakari Ninjas";
         }
         if (query.contains("plus") && query.contains("multiplied by")) {
-            return processPlusMultQuery(query);
+            if(query.indexOf("plus") > query.indexOf("multiplied by") )  {
+                return processMultPlusQuery(query);
+
+            }else{
+                return processPlusMultQuery(query);
+
+            }
         }
         if (query.contains("plus")) {
             return processPlusQuery(query);
@@ -77,6 +83,14 @@ public class QueryProcessor {
         ArrayList<Integer> ints = getInts(parts);
         //System.out.println(ints.get(0).intValue() + " + (" + ints.get(1).intValue() + " * " + ints.get(2).intValue() + ")");
         int result = ints.get(0).intValue() + (ints.get(1).intValue() * ints.get(2).intValue());
+        return String.valueOf(result);
+    }
+
+    private String processMultPlusQuery(String query) {
+        String[] parts = query.split(" ");
+        ArrayList<Integer> ints = getInts(parts);
+        //System.out.println(ints.get(0).intValue() + " + (" + ints.get(1).intValue() + " * " + ints.get(2).intValue() + ")");
+        int result = (ints.get(0).intValue() * ints.get(1).intValue()) + ints.get(2).intValue();
         return String.valueOf(result);
     }
 
