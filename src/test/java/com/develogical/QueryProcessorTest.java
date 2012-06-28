@@ -23,7 +23,7 @@ public class QueryProcessorTest {
 
     @Test
      public void fibs() {
-        String result = new QueryProcessor().process("123123:what is the 4th number in the Fibonacci sequence");
+        String result = new QueryProcessor().process("123123: what is the 4th number in the Fibonacci sequence");
         assertNotNull(result);
         assertThat(result, is("3"));
     }
