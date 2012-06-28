@@ -18,6 +18,8 @@ public class QueryProcessor {
         if (query.contains("who is the Prime Minister of Great Britain")) {
             return "David Cameron";
         }
+        if (query.contains("who played James Bond in the film Dr No"))
+            return "Sean Connery";
         if (query.contains("what is your name")) {
             return "Uakari Ninjas";
         }
