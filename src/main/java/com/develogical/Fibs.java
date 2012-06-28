@@ -10,6 +10,7 @@ public class Fibs {
         }
         catch (Exception e) {
             System.out.println("Fibs got exception with this input: " + s);
+            System.out.println("Fibs: " + e.getMessage());
         }
         return "" +calcFib(num);
         
