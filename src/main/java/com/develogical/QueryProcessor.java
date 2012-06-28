@@ -1,5 +1,7 @@
 package com.develogical;
 
+import com.develogical.web.SquareCube;
+
 public class QueryProcessor {
 
     public String process(String query) {
@@ -41,15 +43,35 @@ public class QueryProcessor {
         if (query.contains("plus")) {
             return processPlusQuery(query);
         }
+        if (query.contains("minus")) {
+            return processMinusQuery(query);
+        }
         if (query.contains("multiplied by")) {
             return processMultQuery(query);
         }
         if (query.contains("which of the following numbers is both a square and a cube")) {
             System.out.println("Square and cube: " + request[2]);
-            return "";
+            return new SquareCube().isSquare(request[2]);
         }
         System.out.println("Request was: " + query);
         return "";
+    }
+
+    private String processMinusQuery(String query) {
+        String[] parts = query.split(" ");
+        int flag = 1;
+        int total = 0;
+        Integer num = null;
+        for (int i = 0; i<parts.length; i++) {
+            try {
+                num = Integer.parseInt(parts[i].trim());
+                total = total + (flag * num.intValue());
+                flag = -1;
+            }
+            catch (Exception e) {}
+        }
+
+        return String.valueOf(total);
     }
 
     private String processPlusQuery(String query) {

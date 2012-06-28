@@ -43,6 +43,13 @@ public class QueryProcessorTest {
     }
 
     @Test
+    public void returnsMinusResult_13_9_eq_4() {
+        String result = new QueryProcessor().process("what is 13 minus 9");
+        assertNotNull(result);
+        assertThat(result, is("4"));
+    }
+
+    @Test
     public void returnsMultResult_4_times_3() {
         String result = new QueryProcessor().process("what is 4 multiplied by 3");
         assertNotNull(result);
