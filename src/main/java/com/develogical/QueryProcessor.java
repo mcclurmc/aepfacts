@@ -20,6 +20,9 @@ public class QueryProcessor {
         if (query.contains("which of the following numbers is the largest")) {
                 return new LargestNumber().findLargestNumber(request[2]);
         }
+        if (query.contains("power")) {
+            return processPowerQuery(query);
+        }
         if (query.contains("what currency did Spain use before the Euro")) {
             return "peseta";
         }
@@ -72,6 +75,27 @@ public class QueryProcessor {
         }
 
         return String.valueOf(total);
+    }
+
+    private String processPowerQuery(String query) {
+        String[] parts = query.split(" ");
+        int a = -1;
+        int b = -1;
+        Integer num = null;
+        for (int i = 0; i<parts.length; i++) {
+            try {
+                num = Integer.parseInt(parts[i].trim());
+                if(a == -1){
+                    a = num.intValue();
+                }else {
+                    b = num.intValue();
+
+                }
+            }
+            catch (Exception e) {}
+        }
+
+        return String.valueOf((int)Math.pow(a, b));
     }
 
     private String processPlusQuery(String query) {

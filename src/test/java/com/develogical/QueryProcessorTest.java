@@ -8,6 +8,13 @@ import static org.junit.Assert.assertThat;
 public class QueryProcessorTest {
 
     @Test
+    public void powersTest() {
+        String result = new QueryProcessor().process("123123:what is 2 to the power of 3");
+        assertNotNull(result);
+        assertThat(result, is("8"));
+    }
+
+    @Test
     public void canGreetYou() {
         String result = new QueryProcessor().process("123123:which of the following numbers is the largest : 23,43,4,86 ");
         assertNotNull(result);
