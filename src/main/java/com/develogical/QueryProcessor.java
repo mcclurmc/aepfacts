@@ -12,8 +12,11 @@ public class QueryProcessor {
     }
 
     private String processQuery(String query, String[] request) {
+        if (query.contains("which of the following numbers are primes")) {
+            return new Primes().findPrime(request[2]);
+        }
         if (query.contains("which of the following numbers is the largest")) {
-            return new LargestNumber().findLargestNumber(request[2]);
+                return new LargestNumber().findLargestNumber(request[2]);
         }
         if (query.contains("what currency did Spain use before the Euro")) {
             return "peseta";
@@ -40,6 +43,10 @@ public class QueryProcessor {
         }
         if (query.contains("multiplied by")) {
             return processMultQuery(query);
+        }
+        if (query.contains("which of the following numbers is both a square and a cube")) {
+            System.out.println("Square and cube: " + request[2]);
+            return "";
         }
         System.out.println("Request was: " + query);
         return "";
