@@ -1,5 +1,6 @@
 package com.develogical;
 
+import org.junit.Assert;
 import org.junit.Test;
 import static junit.framework.Assert.assertNotNull;
 import static org.hamcrest.CoreMatchers.is;
@@ -75,6 +76,13 @@ public class QueryProcessorTest {
         String result = new QueryProcessor().process("what is 4 multiplied by 3");
         assertNotNull(result);
         assertThat(result, is("12"));
+    }
+
+    @Test
+    public void primes() {
+        String result = new QueryProcessor().process("02837:which of the following numbers are primes: 3, 345, 5, 13");
+        assertNotNull(result);
+        assertThat(result, is("3,5,13"));
     }
 }
 
