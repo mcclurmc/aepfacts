@@ -84,6 +84,13 @@ public class QueryProcessorTest {
         assertNotNull(result);
         assertThat(result, is("3,5,13"));
     }
+
+    @Test
+    public void plusAndMult() {
+        String result = new QueryProcessor().process("66106940: what is 6 plus 18 multiplied by 16");
+        assertNotNull(result);
+        assertThat(result, is("294"));
+    }
 }
 
 
