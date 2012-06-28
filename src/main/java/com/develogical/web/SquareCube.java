@@ -7,7 +7,10 @@ public class SquareCube {
         for (String num : nums.split(",")) {
             int i = Integer.valueOf(num.trim());
             if (i == 1 || i == 1000000) {
-                rets = rets + i;
+                if (rets == "")
+                    rets = rets + i;
+                else
+                    rets = rets + "," + i;
             }
         }
         return rets;

@@ -2,13 +2,17 @@ package com.develogical;
 
 public class Primes {
     String findPrime(String nums) {
+        String rets = "";
         for (String num : nums.split(",")) {
             int i = Integer.valueOf(num.trim());
             if (isPrime(i)) {
-                return "" + i;
+                if (rets == "")
+                    rets = rets + i;
+                else
+                    rets = rets + "," + i;
             }
         }
-        return "";
+        return rets;
     }
 
     private boolean isPrime(int i) {
