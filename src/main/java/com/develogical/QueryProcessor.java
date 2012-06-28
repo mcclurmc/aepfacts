@@ -15,6 +15,9 @@ public class QueryProcessor {
         if (query.contains("which of the following numbers is the largest")) {
             return new LargestNumber().findLargestNumber(request[2]);
         }
+        if (query.contains("what currency did Spain use before the Euro")) {
+            return "peseta";
+        }
         if (query.contains("who is the Prime Minister of Great Britain")) {
             return "David Cameron";
         }
