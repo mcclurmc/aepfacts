@@ -1,21 +1,17 @@
 package com.develogical;
 
 import org.junit.Test;
-
-import java.util.Map;
-
 import static junit.framework.Assert.assertNotNull;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.matchers.JUnitMatchers.containsString;
 
 public class QueryProcessorTest {
 
     @Test
     public void canGreetYou() {
-        String result = new QueryProcessor().process("hi");
+        String result = new QueryProcessor().process("123123:which of the following numbers is the largest : 23,43,4,86 ");
         assertNotNull(result);
-        assertThat(result, is("hello"));
+        assertThat(result, is("86"));
     }
 
     @Test
