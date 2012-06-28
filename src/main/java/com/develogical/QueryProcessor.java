@@ -24,6 +24,9 @@ public class QueryProcessor {
         if (query.contains("plus")) {
             return processPlusQuery(query);
         }
+        if (query.contains("multiplied by")) {
+            return processMultQuery(query);
+        }
         System.out.println("Request was: " + query);
         return "";
     }
@@ -42,5 +45,21 @@ public class QueryProcessor {
 
         return String.valueOf(total);
     }
+
+    private String processMultQuery(String query) {
+        String[] parts = query.split(" ");
+        int total = 1;
+        Integer num = null;
+        for (int i = 0; i<parts.length; i++) {
+            try {
+                num = Integer.parseInt(parts[i].trim());
+                total = total * num.intValue();
+            }
+            catch (Exception e) {}
+        }
+
+        return String.valueOf(total);
+    }
+
 
 }
