@@ -9,6 +9,7 @@ public class QueryProcessor {
         if (query.contains("name")) {
             return "Uakari Ninjas";
         }
+        System.out.println("Request was: " + query);
         return "";
     }
 
