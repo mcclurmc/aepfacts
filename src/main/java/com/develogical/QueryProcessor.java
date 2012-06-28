@@ -18,6 +18,9 @@ public class QueryProcessor {
         if (query.contains("what currency did Spain use before the Euro")) {
             return "peseta";
         }
+        if (query.contains("number in the Fibonacci sequence")) {
+            return new Fibs().findFib(query);
+        }
         if (query.contains("which city is the Eiffel tower in")) {
             return "Paris";
         }
