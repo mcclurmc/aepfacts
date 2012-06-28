@@ -21,12 +21,12 @@ public class QueryProcessorTest {
         assertThat(result, is("3"));
     }
 
-//    @Test
-//    public void isCubeAndSquare() {
-//        String result = new QueryProcessor().process("123123:which of the following numbers is both a square and a cube : 1,3,348,1024");
-//        assertNotNull(result);
-//        assertThat(result, is("1"));
-//    }
+    @Test
+    public void isCubeAndSquare() {
+        String result = new QueryProcessor().process("123123:which of the following numbers is both a square and a cube : 1,3,1000000,1024");
+        assertNotNull(result);
+        assertThat(result, is("1,1000000"));
+    }
 
     @Test
     public void whoPlayedJamesBondInDrNo() {
