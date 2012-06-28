@@ -15,6 +15,20 @@ public class QueryProcessorTest {
     }
 
     @Test
+    public void isCubeAndSquare() {
+        String result = new QueryProcessor().process("123123:which of the following numbers is both a square and a cube : 1,3,348,1024");
+        assertNotNull(result);
+        assertThat(result, is("1"));
+    }
+
+    @Test
+    public void whoPlayedJamesBondInDrNo() {
+        String result = new QueryProcessor().process("123123:who played James Bond in the film Dr No");
+        assertNotNull(result);
+        assertThat(result, is("Sean Connery"));
+    }
+
+    @Test
     public void returnsEmptyStringForUnknownQueries() {
         String result = new QueryProcessor().process("unknown");
         assertNotNull(result);
