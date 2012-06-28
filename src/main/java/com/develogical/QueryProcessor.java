@@ -13,7 +13,7 @@ public class QueryProcessor {
         else
             result = processQuery(request[1], request);
 
-        System.out.print("Result of request " + request[0] + ": " + result);
+        System.out.println("Result of request " + request[0] + ": " + result);
         return result;
     }
 
