@@ -24,6 +24,13 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <scm>
+        <connection>scm:git:https://github.com/mcclurmc/aepfacts.git</connection>
+        <developerConnection>scm:git:https://github.com/mcclurmc/aepfacts.git</developerConnection>
+        <tag>HEAD</tag>
+        <url>https://github.com/mcclurmc/aepfacts.git</url>
+    </scm>
+
     <build>
         <plugins>
             <plugin>
