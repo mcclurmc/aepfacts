@@ -1,6 +1,7 @@
 package com.develogical;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
 
 import com.develogical.web.SquareCube;
 
@@ -49,6 +50,15 @@ public class QueryProcessor {
         if (query.contains("what is your name")) {
             return "Uakari Ninjas";
         }
+        if (query.contains("plus") && query.contains("multiplied by")) {
+            if(query.indexOf("plus") > query.indexOf("multiplied by") )  {
+                return processMultPlusQuery(query);
+
+            }else{
+                return processPlusMultQuery(query);
+
+            }
+        }
         if (query.contains("plus")) {
             return processPlusQuery(query);
         }
@@ -64,6 +74,34 @@ public class QueryProcessor {
         }
         System.out.println("*** Unknown request was: " + query + " ***");
         return "";
+    }
+
+    private String processPlusMultQuery(String query) {
+        String[] parts = query.split(" ");
+        ArrayList<Integer> ints = getInts(parts);
+        //System.out.println(ints.get(0).intValue() + " + (" + ints.get(1).intValue() + " * " + ints.get(2).intValue() + ")");
+        int result = ints.get(0).intValue() + (ints.get(1).intValue() * ints.get(2).intValue());
+        return String.valueOf(result);
+    }
+
+    private String processMultPlusQuery(String query) {
+        String[] parts = query.split(" ");
+        ArrayList<Integer> ints = getInts(parts);
+        //System.out.println(ints.get(0).intValue() + " + (" + ints.get(1).intValue() + " * " + ints.get(2).intValue() + ")");
+        int result = (ints.get(0).intValue() * ints.get(1).intValue()) + ints.get(2).intValue();
+        return String.valueOf(result);
+    }
+
+    private ArrayList<Integer> getInts(String[] parts) {
+        ArrayList<Integer> nums = new ArrayList<Integer>();
+        for (int i = 0; i<parts.length; i++) {
+            try {
+                Integer num = Integer.parseInt(parts[i].trim());
+                nums.add(num);
+            }
+            catch (Exception e) {}
+        }
+        return nums;
     }
 
     private String processMinusQuery(String query) {
