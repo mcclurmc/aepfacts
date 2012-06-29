@@ -1,6 +1,6 @@
 package com.develogical;
 
-import java.text.DecimalFormat;
+import java.math.BigInteger;
 
 import com.develogical.web.SquareCube;
 
@@ -85,14 +85,14 @@ public class QueryProcessor {
 
     private String processPowerQuery(String query) {
         String[] parts = query.split(" ");
-        int a = -1;
-        int b = -1;
+        BigInteger a = null;
+        int b = 1;
         Integer num = null;
         for (int i = 0; i<parts.length; i++) {
             try {
                 num = Integer.parseInt(parts[i].trim());
-                if(a == -1){
-                    a = num.intValue();
+                if(a == null){
+                    a = BigInteger.valueOf(num.intValue());
                 }else {
                     b = num.intValue();
 
@@ -100,8 +100,7 @@ public class QueryProcessor {
             }
             catch (Exception e) {}
         }
-        DecimalFormat df = new DecimalFormat("#");
-        return df.format(Math.pow(a, b));
+        return a.pow(b).toString();
     }
 
     private String processPlusQuery(String query) {
